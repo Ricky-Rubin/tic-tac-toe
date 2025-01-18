@@ -27,14 +27,14 @@ function cellClick (cell) {
 
 function markMatch() {
     const winPattern = [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9],
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
         [1, 4, 7],
         [2, 5, 8],
-        [3, 6, 9],
-        [1, 5, 9],
-        [3, 5, 7]
+        [0, 4, 8],
+        [2, 4, 6]
     ];
 
     for (let i = 0; i < winPattern.length; i++) {
@@ -43,52 +43,53 @@ function markMatch() {
         if (cells[a].textContent !== '' && cells[a].textContent === cells[b].textContent
             && cells[b].textContent === cells[c].textContent
         ) {
-            result.textContent = `${cells[a].textContent} wins the round`
+            result.textContent = `${cells[a].textContent} wins the round`;
+            break;
         }
     }
 }
 
 cell1.addEventListener('click', () => {
-    markMatch();
     cellClick(cell1);
+    markMatch();
 });
 
 cell2.addEventListener('click', () => {
-    markMatch();
     cellClick(cell2);
+    markMatch();
 });
 
 cell3.addEventListener('click', () => {
-    markMatch();
     cellClick(cell3);
+    markMatch();
 });
 
 cell4.addEventListener('click', () => {
-    markMatch();
     cellClick(cell4);
+    markMatch();
 });
 
 cell5.addEventListener('click', () => {
-    markMatch();
     cellClick(cell5);
+    markMatch();
 });
 
 cell6.addEventListener('click', () => {
-    markMatch();
     cellClick(cell6);
+    markMatch();
 });
 
 cell7.addEventListener('click', () => {
-    markMatch();
     cellClick(cell7);
+    markMatch();
 });
 
 cell8.addEventListener('click', () => {
-    markMatch();
     cellClick(cell8);
+    markMatch();
 });
 
 cell9.addEventListener('click', () => {
-    markMatch();
     cellClick(cell9);
+    markMatch();
 });
