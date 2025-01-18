@@ -17,7 +17,7 @@ function cellClick (cell) {
             click = false;
         } else {
             cell.textContent = 'O'
-            click = true;
+            click = true; 
         }
     }
 }
