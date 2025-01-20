@@ -9,6 +9,8 @@ const cell8 = document.querySelector('#cell8');
 const cell9 = document.querySelector('#cell9');
 const result = document.querySelector('#result');
 const gameBoard = document.querySelector('.game-board');
+const startOver = document.querySelector('#start-over');
+const refresh = document.querySelector('.refresh');
 
 const cells = [cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9];
 
@@ -46,15 +48,28 @@ function markMatch() {
         ) {
             result.textContent = `${cells[a].textContent} wins the round`;
             break;
-        };
+        }
     };
 };
 
 function stopClick() {
     if (result.textContent !== '') {
-        gameBoard.style.pointerEvents = 'none'
+        gameBoard.style.pointerEvents = 'none';
+        refresh.style.display = 'block';
     };
 };
+
+function playAgain() {
+    click = true;
+    gameBoard.style.pointerEvents = 'auto';
+    refresh.style.display = 'none';
+    cells.forEach((cell) => {
+        cell.textContent = '';
+    });
+    result.textContent = '';
+}
+
+startOver.addEventListener('click', playAgain);
 
 cell1.addEventListener('click', () => {
     cellClick(cell1);
