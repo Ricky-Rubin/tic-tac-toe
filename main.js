@@ -8,6 +8,7 @@ const cell7 = document.querySelector('#cell7');
 const cell8 = document.querySelector('#cell8');
 const cell9 = document.querySelector('#cell9');
 const result = document.querySelector('#result');
+const gameBoard = document.querySelector('.game-board');
 
 const cells = [cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9];
 
@@ -45,51 +46,66 @@ function markMatch() {
         ) {
             result.textContent = `${cells[a].textContent} wins the round`;
             break;
-        }
-    }
-}
+        };
+    };
+};
+
+function stopClick() {
+    if (result.textContent !== '') {
+        gameBoard.style.pointerEvents = 'none'
+    };
+};
 
 cell1.addEventListener('click', () => {
     cellClick(cell1);
     markMatch();
+    stopClick();
 });
 
 cell2.addEventListener('click', () => {
     cellClick(cell2);
     markMatch();
+    stopClick();
 });
 
 cell3.addEventListener('click', () => {
     cellClick(cell3);
     markMatch();
+    stopClick();
 });
 
 cell4.addEventListener('click', () => {
     cellClick(cell4);
     markMatch();
+    stopClick();
 });
 
 cell5.addEventListener('click', () => {
     cellClick(cell5);
     markMatch();
+    stopClick();
 });
 
 cell6.addEventListener('click', () => {
     cellClick(cell6);
     markMatch();
+    stopClick();
 });
 
 cell7.addEventListener('click', () => {
     cellClick(cell7);
     markMatch();
+    stopClick();
 });
 
 cell8.addEventListener('click', () => {
     cellClick(cell8);
     markMatch();
+    stopClick();
 });
 
 cell9.addEventListener('click', () => {
     cellClick(cell9);
     markMatch();
+    stopClick();
 });
