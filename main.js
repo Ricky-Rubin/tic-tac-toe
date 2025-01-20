@@ -50,6 +50,18 @@ function markMatch() {
             break;
         }
     };
+
+    let fullBoard = true;
+
+    for (let i = 0; i < cells.length; i++) {
+        if (cells[i].textContent === '') {
+            fullBoard = false;
+        };
+    };
+
+    if (fullBoard) {
+        result.textContent = `Neither player wins the round. Start Over!`
+    };
 };
 
 function stopClick() {
