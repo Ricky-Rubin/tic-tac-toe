@@ -11,17 +11,37 @@ const result = document.querySelector('#result');
 const gameBoard = document.querySelector('.game-board');
 const startOver = document.querySelector('#start-over');
 const refresh = document.querySelector('.refresh');
+const newGame = document.querySelector('#newGame');
+const msgLayer = document.querySelector('.msg-layer');
+const formLayer = document.querySelector('.form-layer');
+const playerOne = document.querySelector('#playerOne');
+const playerTwo = document.querySelector('#playerTwo');
+const formStart = document.querySelector('#start');
+const boardLayer = document.querySelector('.board-layer');
+const roundCount = document.querySelector('#round');
+const roundShow = document.querySelector('.round-count');
+const playerOneName = document.querySelector('#player-one-name');
+const player1Score = document.querySelector('#player-one-score');
+const playerTwoName = document.querySelector('#player-two-name');
+const player2Score = document.querySelector('#player-two-score');
+const playerTurn = document.querySelector('#player-turn');
 
 const cells = [cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9];
 
 let click = true;
 
+let round = 1;
+let playerOneScore = 0;
+let playerTwoScore = 0;
+
 function cellClick (cell) {
     if (cell.textContent === '') {
         if (click) {
+            playerTurn.textContent = `${playerTwo.value}'s turn`
             cell.textContent = 'X'
             click = false;
         } else {
+            playerTurn.textContent = `${playerOne.value}'s turn`
             cell.textContent = 'O'
             click = true; 
         };
@@ -46,7 +66,7 @@ function markMatch() {
         if (cells[a].textContent !== '' && cells[a].textContent === cells[b].textContent
             && cells[b].textContent === cells[c].textContent
         ) {
-            result.textContent = `${cells[a].textContent} wins the round`;
+            result.textContent = `${cells[a].textContent} wins the round.`;
             break;
         }
     };
@@ -59,9 +79,19 @@ function markMatch() {
         };
     };
 
-    if (fullBoard) {
+    if (fullBoard && result.textContent === '') {
         result.textContent = `Neither player wins the round. Start Over!`
     };
+
+    if (result.textContent === 'X wins the round.') {
+        playerOneScore++;
+        player1Score.textContent = `${playerOneScore}`;
+    }
+    
+    if (result.textContent === 'O wins the round.') {
+        playerTwoScore++;
+        player2Score.textContent = `${playerTwoScore}`
+    }
 };
 
 function stopClick() {
@@ -71,6 +101,20 @@ function stopClick() {
     };
 };
 
+function checkDraw() {
+    let fullBoard = true;
+
+    for (let i = 0; i < cells.length; i++) {
+        if (cells[i].textContent === '') {
+            fullBoard = false;
+        };
+    };
+
+    if (fullBoard) {
+        result.textContent = `Neither player wins the round. Start Over!`
+    };
+}
+
 function playAgain() {
     click = true;
     gameBoard.style.pointerEvents = 'auto';
@@ -79,9 +123,35 @@ function playAgain() {
         cell.textContent = '';
     });
     result.textContent = '';
-}
+    round++;
+};
 
-startOver.addEventListener('click', playAgain);
+// function playerTurn() {
+//     if (click) {
+//         playerTurn.textContent = `${playerOne.value}'s turn`
+//     } else {
+//         playerTurn.textContent = `${playerTwo.value}'s turn`
+//     } 
+//     click = !click;
+// };
+
+startOver.addEventListener('click', () => {
+    playAgain();
+    roundCount.textContent = `${round}`
+});
+
+newGame.addEventListener('click', () => {
+    msgLayer.style.display = 'none';
+    formLayer.style.display = 'flex';
+});
+
+formStart.addEventListener('click', () => {
+    formLayer.style.display = 'none';
+    boardLayer.style.display = 'flex';
+    roundShow.style.display = 'block'
+    playerOneName.textContent = playerOne.value;
+    playerTwoName.textContent = playerTwo.value;
+})
 
 cell1.addEventListener('click', () => {
     cellClick(cell1);
