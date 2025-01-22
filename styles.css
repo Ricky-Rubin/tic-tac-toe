@@ -172,7 +172,7 @@ label {
 }
 
 .middle {
-    margin: 0px 100px;
+    margin: 0px 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -214,8 +214,9 @@ label {
 }
 
 #result {
-    width: 175px;
+    /* width: 175px; */
     height: 35px;
+    padding: 0px 15px;
     border-radius: 10px;
     color: white;
     background-color: #2f3542;
