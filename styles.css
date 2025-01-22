@@ -157,6 +157,11 @@ label {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
 }
 
+.right,
+.left {
+    padding: 0px 20px;
+}
+
 .head {
     text-align: center;
     text-decoration: underline;
@@ -172,7 +177,7 @@ label {
 }
 
 .middle {
-    margin: 0px 80px;
+    margin: 0px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
