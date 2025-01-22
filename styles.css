@@ -62,6 +62,7 @@ body {
     background-color: #2ed573;
     border: none;
     font-size: 18px;
+    color: #2f3542;
 }
 
 .body {
@@ -74,7 +75,8 @@ body {
 
 .board-layer {
     display: flex;
-    /* align-items: center; */
+    align-items: center;
+    /* this is just an identifier */
     justify-content: center;
     z-index: 1;
     display: none;
@@ -171,6 +173,10 @@ label {
 
 .middle {
     margin: 0px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .game-board {
@@ -180,16 +186,15 @@ label {
     gap: 8px;
     background-color: #2f3542;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    margin-top: 35px;
+    /* margin-bottom: 16px; */
 }
 
 #player-turn {
-    margin-top: -50px;
-    margin-left: 70px;
     font-size: 14px;
     font-weight: 600;
     color: #2f3542;
     font-style: italic;
+    padding: 20px;
 }
 
 .game-board div {
@@ -206,4 +211,29 @@ label {
 
 .refresh {
     display: none;
+}
+
+#result {
+    width: 160px;
+    height: 35px;
+    border-radius: 10px;
+    color: white;
+    background-color: #2f3542;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.result-house {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.for-btns {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 5px;
 }

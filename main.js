@@ -25,6 +25,7 @@ const player1Score = document.querySelector('#player-one-score');
 const playerTwoName = document.querySelector('#player-two-name');
 const player2Score = document.querySelector('#player-two-score');
 const playerTurn = document.querySelector('#player-turn');
+const reset = document.querySelector('#reset');
 
 const cells = [cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9];
 
@@ -67,6 +68,7 @@ function markMatch() {
             && cells[b].textContent === cells[c].textContent
         ) {
             result.textContent = `${cells[a].textContent} wins the round.`;
+            playerTurn.textContent = '';
             break;
         }
     };
@@ -126,18 +128,10 @@ function playAgain() {
     round++;
 };
 
-// function playerTurn() {
-//     if (click) {
-//         playerTurn.textContent = `${playerOne.value}'s turn`
-//     } else {
-//         playerTurn.textContent = `${playerTwo.value}'s turn`
-//     } 
-//     click = !click;
-// };
-
 startOver.addEventListener('click', () => {
     playAgain();
     roundCount.textContent = `${round}`
+    playerTurn.textContent = `${playerOne.value}'s turn`
 });
 
 newGame.addEventListener('click', () => {
@@ -151,6 +145,31 @@ formStart.addEventListener('click', () => {
     roundShow.style.display = 'block'
     playerOneName.textContent = playerOne.value;
     playerTwoName.textContent = playerTwo.value;
+    playerTurn.textContent = `${playerOne.value}'s turn`
+});
+
+reset.addEventListener('click', () => {
+    click = true;
+    playerOneScore = 0;
+    playerTwoScore = 0;
+    round = 1;
+    playerOne.value = '';
+    playerTwo.value = '';
+    boardLayer.style.display = 'none';
+    msgLayer.style.display = 'block';
+    player1Score.textContent = `0`;
+    player2Score.textContent = `0`;
+    roundCount.textContent = `1`;
+    roundShow.style.display = 'none';
+    result.textContent = ''
+
+    for (let i = 0; i < cells.length; i++) {
+        if (cells[i].textContent !== '') {
+            cells[i].textContent = '';
+        };
+    };
+    refresh.style.display = 'none';
+    gameBoard.style.pointerEvents = 'auto';
 })
 
 cell1.addEventListener('click', () => {
