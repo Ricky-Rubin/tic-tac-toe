@@ -39,10 +39,12 @@ function cellClick (cell) {
     if (cell.textContent === '') {
         if (click) {
             playerTurn.textContent = `${playerTwo.value}'s turn`
+            cell.style.color = 'green';
             cell.textContent = 'X'
             click = false;
         } else {
             playerTurn.textContent = `${playerOne.value}'s turn`
+            cell.style.color = 'red'
             cell.textContent = 'O'
             click = true; 
         };
