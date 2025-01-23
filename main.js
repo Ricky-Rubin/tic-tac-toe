@@ -139,7 +139,8 @@ newGame.addEventListener('click', () => {
     formLayer.style.display = 'flex';
 });
 
-formStart.addEventListener('click', () => {
+formStart.addEventListener('click', (event) => {
+    event.preventDefault();
     formLayer.style.display = 'none';
     boardLayer.style.display = 'flex';
     roundShow.style.display = 'block'
