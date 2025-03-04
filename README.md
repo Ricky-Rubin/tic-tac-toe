@@ -3,7 +3,8 @@ This project is a part of [The Odin Project's Full Stack JavaScript course](http
 where two players can play against each other. The game dynamically updates the board and each player's score. 
 
 ## Technologies Used 
-* HTML & CSS
+* HTML
+* CSS
 * JavaScript
 
 ## Features
